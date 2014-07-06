@@ -1,2 +1,0 @@
-agenziauscite.openstreetmap.it
-==============================
