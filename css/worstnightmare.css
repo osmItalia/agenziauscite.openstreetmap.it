@@ -1,0 +1,212 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.map {
+  width: 49.5%;
+  height: 80%;
+  display: block;
+}
+
+.note {
+  width: 49.5%;
+  height: 1.5em;
+  display: block;
+  text-align: right;
+}
+
+.map-title {
+  width: 49.5%;
+  height: 2.5em;
+  display: inline-block;
+  margin: 0 0 5px 0;
+  text-align: center;
+}
+
+label {
+  display: block;
+  float: left;
+  text-align: center;
+  width: 20%;
+}
+
+.question > div { 
+    clear: left;
+}
+
+ol li {
+  margin: 0 0 1em;
+  padding: 0;
+  vertical-align: top; 
+}
+
+ol .round {
+  background-color: #e6e6e6;
+  border-radius: 16px;
+  margin: 0 0 0.5em; 
+  width: 90%;
+}
+
+.ui-slider-horizontal {
+  background: transparent;
+  /* border: 0; */
+  border-radius: 1em;
+  border: none;
+  height: 2em;
+  /* margin: 0 0 0 2em; */
+   width: 90%; 
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+  background: #000;
+  border-radius: 0.7em;
+  height: 1.5em;
+  width: 46px;
+  top: 0.2em;
+  margin-left: 0; 
+  margin: 0 2px;
+}
+
+.footer {
+  width: 100%;
+  display: block;
+  clear:both;
+}
+
+.response {
+  display: block;
+  width: 99%;
+  margin: 10px 0 10px 0;
+  padding: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.success {  
+  background-color: #80FF96;
+}
+
+.error {
+  background-color: #FF3333;
+}
+
+.warning {
+  background-color: #FFA444;
+}
+
+.tweet-button {
+  display: inline-block;
+  padding: 16px;
+  margin: 16px;
+  background-color: transparent;
+  background-image: url( '../img/Twitter_bird_logo_2012.svg' );
+  background-size: 32px 32px;
+  width: 32px;
+  height: 32px;
+}
+
+.save-button {
+  display: inline-block;
+  padding: 16px;
+  margin: 16px;
+  background-color: transparent;
+  background-image: url( '../img/save.svg' );
+  background-size: 32px 32px;
+  width: 32px;
+  height: 32px;
+}
+
+.save-button:hover {
+  color: #fff;
+  background-color: #47A447;
+  border-color: #92EE92;
+}
+
+.tweet-button:hover {
+  color: #fff;
+  background-color: #3276b1;
+}
+
+.safe , .over {
+  padding:3px;
+}
+
+.safe {
+  color: green;
+}
+
+.over {
+  color:red;
+}
+
+.help-text {
+  display: block;
+  width: 99%;
+  margin: 10px 0 10px 0;
+  padding: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #DBDBDB;
+}
+
+.spinner {
+  background-image: url( '../img/spinner.gif' );
+  width: 64px;
+  height: 64px;
+}
+
+.avatar {
+  text-align: center;
+  display: inline-block;
+}
+
+.avatar-name {
+  text-align: center;
+  color: white;
+  padding: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-color: #428BCA;
+}
+
+.img-box {
+  display: block;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  margin: 10px auto;
+}
+
+.circular {
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+}
+
+.logo {
+  vertical-align: top;
+  text-align: center;
+  display: inline-block;
+  margin: auto;
+  width: 200px;
+  height: 175px;
+}
+
+
+.logo-name {
+  text-align: center;
+  padding: 5px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
