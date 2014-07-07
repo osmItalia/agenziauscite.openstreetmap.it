@@ -5,8 +5,6 @@
  *
  */
 
-REMOTE_BASEURL = 'http://localhost:5500/';
-
 $(document).ready(function(){
 
     var table = $('#history-table')
