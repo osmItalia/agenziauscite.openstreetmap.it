@@ -224,8 +224,8 @@ $( document ).ready( function() {
             var tweettext = $('textarea#tweet-text').val();
             var twitterBaselink = "https://twitter.com/intent/tweet?";
             var params = {
-                url: window.location.host + '/compare.html#18/' + lat.toFixed(4) + '/' + lon.toFixed(4),
-                via: 'OpenStreeMapIt',
+                url: window.location.href,
+                via: 'OpenStreetMapIt',
                 text: tweettext
             };
 
