@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="./img/favicon.ico">
+
+    <title>L'Agenzia delle Entrate copia da OpenStreetMap?</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="./css/jumbotron-narrow.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="//cdn.leafletjs.com/leaflet-0.7.1/leaflet.css" />
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="lib/leaflet/leaflet.ie.css" />
+    <![endif]-->
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+
+    <link rel="icon" type="image/png" href="//cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/images/spritesheet-2x.png">
+    <link rel="icon" type="image/png" href="//cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/images/spritesheet.png">
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.css">
+    <link rel="stylesheet" type="text/css" href="./css/ControlMiniMap/Control.MiniMap.css" />
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.Default.css" />
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/MarkerCluster.css" />
+    <link rel="stylesheet" type="text/css" href="./css/leaflet-search/leaflet-search.min.css" />
+    <link rel="stylesheet" type="text/css" href="./css/worstnightmare.css" />
+    <!--[if lte IE 8]>
+      <link rel="stylesheet" href="leaflet.draw.ie.css" />
+    <![endif]-->
+
+    <script type="text/javascript" src="//code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.js"></script>
+    <script type="text/javascript" src="./js/leaflet-layerjson.min.js"></script>
+    <script type="text/javascript" src="./js/leaflet.markercluster.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/0.4.0/leaflet.markercluster.js"></script>
+    <script type="text/javascript" src="./js/leaflet-search/leaflet-search.min.js"></script>
+    <script type="text/javascript" src="./js/leaflet-hash/leaflet-hash.js"></script>
+    <script type="text/javascript" src="./js/ControlMiniMap/Control.MiniMap.js"></script>
+
+    <script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+    <script type="text/javascript" src="./js/jquery-simply-countable/jquery.simplyCountable.js"></script>
+    <style type="text/css">
+      #map1 .leaflet-draw-edit-edit {
+        display: none;
+      }
+      #map1 .leaflet-popup-content {
+        width: 500px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="widecontainer">
+      <div class="header">
+        <ul class="nav nav-pills pull-right">
+          <li><a href=".">Home</a></li>
+          <li class="active"><a href="./compare.html">Scopri</a></li>
+          <li><a href="./contacts.html">Contatti</a></li>
+        </ul>
+        <h3 class="text-muted">OpenStreetMap Italia</h3>
+      </div>
+
+      <h1>Giudica tu stesso!</h1>
+
+      <p><a href="#" id="more-info">Aggiungi un segnalino</a> e <a class="tweet-link"
+        href="https://twitter.com/intent/tweet?via=OpenStreeMapIt&text=%40Agenzia_Entrate%20copia%20da%20%23openstreetmap!%20%23agenziauscite&url=http%3A%2F%2Fagenziauscite.openstreetmap.it%2Fcompare.html">twitta</a>
+        <a class="tweet-link"
+        href="https://twitter.com/intent/tweet?via=OpenStreeMapIt&text=%40Agenzia_Entrate%20copia%20da%20%23openstreetmap!%20%23agenziauscite&url=http%3A%2F%2Fagenziauscite.openstreetmap.it%2Fcompare.html">
+        <img src="./img/Twitter_bird_logo_2012.svg" style="height: 32px; width: 32px;" /></a>
+         la violazione!</p>
+      <div class="help-text" style="display: none;">
+        <p>Per inserire un segnalino sulla mappa:</p>
+          <ol>
+            <li>Clicca sull'icona del segnalino 
+              <img src="./img/small_marker.png" />
+              nella mappa sottostante.
+            </li>
+            <li>
+              Per posizionare il segnalino, clicca sulla mappa. Si aprirà un
+              popup.
+            </li>
+            <li>Puoi salvare il segnalino sulla mappa, cliccando l'icona di
+              salvataggio <img src="./img/save.png" />
+              oppure salvare e twittarlo cliccando sull'icona di Twitter
+              <img src="./img/twitter_logo.png" />. 
+            </li>
+          </ol>
+      </div>
+
+      <div class="response" style="display: none;"></div>
+
+      <div id="osm-title" class="map-title" style="float: left;"><h3>Mappa di OpenStreetMap</h3></div>
+      <div id="aemap-title" class="map-title" style="float: right;"><h3>Mappa dell'Agenzia delle Entrate</h3></div>
+      <br clear="both"/>
+      <div style="float:left; text-align: right; width: 49.5%;">
+        <a href="#" id="locate-me">Localizzami</a> sulla mappa!
+      </div>
+      <br />
+      <div id="map1" class="map" style="float: left;"></div>
+      <div id="map2" class="map" style="float: right;"></div>
+      
+      <div id="osm-fullscreen" class="note" style="float: left;">
+        (<a href="/reportmap.html" id="reportmap-fullscreen">vedi a schermo intero</a>,
+         <a href="/history.html">vedi la cronologia delle segnalazioni</a>)
+      </div>
+      <div id="aemap-fullscreen" class="note" style="float: right;">
+        (<a href="/aemap.html" id="aemap-fullscreen">vedi a schermo intero</a>)
+      </div>
+
+       <!-- Leaflet Sync (mappe stile MapCompare) -->
+      <script type="text/javascript" src="./js/Leaflet.Sync/L.Map.Sync.js"></script>
+
+      <script type="text/javascript" src="./js/worstnightmare.js"></script>
+      <script type="text/javascript" src="./js/maps.js"></script>
+      <script type="text/javascript" src="./js/map_api.js"></script>
+      <script type="text/javascript" src="./js/sync.js"></script>
+    </div><!-- /widecontainer -->
+    <div class="container">
+      <div class="row marketing">
+        <div class="col-lg-6">
+          <h4 id="esempi" title="esempi">Esempi</h4>
+          <p><ul>
+            <li><a href="./compare.html#18/45.46392/9.19219">Milano, Duomo</a>:
+            la pianta del Duomo di Milano è identica nelle due mappe, anche se
+            mancano alcuni dettagli dell'abside, come si vede da
+            <a href="https://upload.wikimedia.org/wikipedia/commons/7/75/Fotothek_df_tg_0000071_Architektur_%5E_Geometrie_%5E_Grundriss_%5E_Mail%C3%A4nder_Dom.jpg"
+            trage="_blank">questa pianta storica</a>.
+            Invece <a href="#duomo-maps-title" onclick="toggleIt('duomo-maps')">
+            altre mappe</a> rappresentano il Duomo in modo diverso.
+            </li>
+
+            <li><a href="./compare.html#18/41.89023/12.49242">Roma, Colosseo</a>:
+            anche in questo caso la pianta del Colosseo è identica. Vedi come
+            viene rappresentato il Colosseo da <a href="#colosseo-maps-title"
+            onclick="toggleIt('colosseo-maps')">altre mappe</a>.
+            </li>
+            <li><a href="./compare.html#18/38.19226/15.55532">Messina, Duomo</a>:
+            qui, nella mappa dell'Agenzia delle Entrate il Duomo di Messina è
+            attraversato da una strada, questo rafforza la nostra opinione che
+            le strade siano state prese da un'altra sorge. Informazioni più
+            dettagliate sono disponibili nelle domande frequenti.</li>
+            <li><a href="./compare.html#18/46.06338/11.12456">Trento</a>: in
+            questo caso ci ha colpito il fatto che nelle due mappe compaia
+            (identicamente) il <em>«Centro Servizi Culturali S. Chiara - Scuola
+            di Musica "I Minipolifonici" (sede provvisoria)»</em> (sic et
+            simpliciter).
+            </li>
+            </ul>
+          </p>
+        </div>
+
+        <div class="col-lg-6">
+          <h4>La Licenza</h4>
+          <p>OpenStreetMap apre la mappa ed i suoi dati
+          al pubblico e li rende liberi da modificare e utilizzare con
+          una <em>licenza aperta</em> (<a href=
+          "http://www.openstreetmap.org/copyright" target="_blank">Open
+          Data Commons Open Database License 1.0</a>) che permette di
+          riutilizzare i dati rispettando due semplici condizioni:
+          l'attribuzione della fonte e la ricondivisione dei dati derivati.</p>
+
+          <h4>Qual è il problema?</h4>
+          L'agenzia delle Entrate sul <a href="http://wwwt.agenziaentrate.gov.it/geopoi_omi/index.php"
+          target="_blank">suo sito</a> utilizza una mappa, riportata qui sopra
+          sulla destra che copia i dati di OpenStreetMap senza citare la fonte.
+        </div>
+      </div>
+
+      <div class="col-lg-12">
+        <div id="duomo-maps" style="display: none;">
+          <h4 id="duomo-maps-title">Il Duomo di Milano rappresentato in altre mappe
+            <span style="font-size: small;">
+              (<a href="#esempi" onclick="toggleIt('duomo-maps')">chiudi mappe</a>)
+            </span>
+          </h4>
+          <ol>
+            <li>
+              <img src="./img/duomomilano_nokia_maps.png" style="width: 100%;"/>
+              <span style="font-size: small;">(mappa del Duomo di Milano,
+                mappe Nokia. © Nokia XLimage®. Riprodotta qui con il solo
+                illustrativo.)
+              </span>
+            </li>
+            <li>
+              <img src="./img/duomomilano_bing_maps.png" style="width: 100%;"/>
+              <span style="font-size: small;">(mappa del Duomo di Milano, Bing
+                maps. © 2014 Microsoft Corporation. Riprodotta qui con il solo
+                illustrativo.)</span>
+            </li>
+            <li><img src="./img/duomomilano_google_maps.png" style="width: 100%;"/>
+              <span style="font-size: small;">(mappa del Duomo di Milano,
+                Google maps. © 2014 Google. Riprodotta qui con il solo
+                illustrativo.)</span>
+            </li>
+          </ol>
+        </div>
+
+        <div id="colosseo-maps" style="display: none;">
+          <h4 id="colosseo-maps-title">Il Colosseo rappresentato in altre mappe
+            <span style="font-size: small;">
+              (<a href="#esempi" onclick="toggleIt('colosseo-maps')">chiudi
+              mappe</a>)
+            </span>
+          </h4>
+          <ol>
+            <li><img src="./img/colosseo_nokia_maps.png" style="width: 100%;"/>
+              <span style="font-size: small;">(mappa del Colosseo, mappe Nokia.
+              © Nokia XLimage®. Riprodotta qui con il solo illustrativo.)
+              </span>
+            </li>
+            <li><img src="./img/colosseo_bing_maps.png" style="width: 100%;"/>
+              <span style="font-size: small;">(mappa del Colosseo, Bing maps.
+                © 2014 Microsoft Corporation. Riprodotta qui con il solo
+                illustrativo.)</span>
+            </li>
+            <li><img src="./img/colosseo_google_maps.png" style="width: 100%;"/>
+              <span style="font-size: small;">(mappa del Colosseo, Google maps.
+                © 2014 Google. Riprodotta qui con il solo illustrativo.)</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="row marketing">
+        <div class="col-lg-12">
+          <h3>Domande frequenti</h3>
+          <h4>Cos'è la mappa sulla sinistra? Chi l'ha creata?</h4>
+          <p>La mappa sulla sinistra è quella di <a href="http://www.openstreetmap.org/"
+          target= "_blank">OpenStreetMap</a>: un progetto aperto e
+          collaborativo il cui scopo è creare una mappa libera del mondo,
+          utilizzabile, copiabile e modificabile da chiunque ne abbia bisogno.
+          </p>
+          <h4>Cos'è la mappa sulla destra? Chi l'ha creata?</h4>
+          <p>La mappa sulla destra è tratta dal <a href="http://wwwt.agenziaentrate.gov.it/geopoi_omi/index.php"
+          target="_blank">sito dell'Agenzia delle Entrate</a>: è la mappa dalla
+          quale si possono scaricare i dati relativi all'Osservatorio del
+          Mercato Immobiliare (OMI).
+          </p>
+          <h4>Quali dati sarebbero stati copiati? Perché pensate che l'Agenzia
+          delle Entrate abbia copiato da OpenStreetMap?</h4>
+          <p>Dall'analisi che abbiamo effettuato sembrerebbe che siano stati
+          copiati i profili ed i nomi degli edifici ed alcune informazioni
+          sulla destinazione d'uso (parco, parcheggio, ecc.). Il grafo stradale
+          e i nomi delle vie invece sembrano provenire da un'altra fonte.
+          </p>
+          <p>Come mostrato dagli <a href="#esempi">esempi</a> più in alto:
+            <ol>
+              <li>gli edifici hanno la stessa forma, come si vede sopra nel caso
+              del Duomo di Milano e del Colosseo.</li>
+              <li>i nomi degli edifci sono identici (comprese maiuscole,
+              minuscole e punteggiatura)</li>
+              <li>alcune strade passano attraverso gli edifici, oppure ci sono
+              incroci sopra fiumi o laghi.</li>
+            </ol>
+          Ci potrebbero essere alcune differenze dovute al fatto che i dati
+          risalgono alla fine di giugno 2014. Mentre OpenStreetMap, in Italia,
+          è modificata ogni giorno da <a href="http://osmstats.altogetherlost.com/index.php?item=countries&country=Italy"
+          target="_blank">centinaia di persone</a>.
+          </p>
+          <h4>Come hanno fatto a copiare questi dati?</h4>
+          <p>È stato molto semplice, i dati di OpenStreetMap si possono
+          liberamente scaricare da <a href="http://planet.openstreetmap.org/"
+          target="_blank">planet.openstreetmap.org</a>, la licenza di
+          OpenStreetMap (Open Database License, ODbL) infatti permette di
+          riutilizzare liberamente questi dati con due semplici condizioni:
+          citarne la provenienza da OpenStreetMap e rilasciare eventuali dati
+          derivati con la stessa licenza.
+          </p>
+          <h4>Qual è la soluzione? Avete provato a proporla all'Agenzia delle
+          entrate?</h4>
+          <p>La soluzione è più semplice di quello che si potrebbe pensare:
+          basta attribuire correttamente la mappa, ovvero aggiungere in calce
+          alla stessa il fatto che i dati sono:
+          <blockquote>
+           I dati della mappa sono © contributori di OpenStreetMap
+          </blockquote>
+          Se, per produrre questa mappa, sono stati creati dei dati derivati da
+          quelli di OpenStreetMap allora devono essere rilasciati con la
+          licenza ODbL.
+          <p>Abbiamo contattato l'Agenzia delle Entrate tramite posta
+          elettronica certificata (PEC) - che ha lo stesso valore di una
+          raccomandata - per tre volte da maggio ad oggi. Non abbiamo ricevuto
+          alcuna risposta.
+          </p>
+          <h4>Come avete fatto a creare questa comparazione tra le mappe?</h4>
+          <p>Abbiamo usato diversi strumenti Open Source, maggiori dettagli sono 
+          disponibili sulla nostra <a href="https://github.com/osmItalia">pagina github</a>.
+
+          </p>
+          <h4>Perché nella mappa dell'Agenzia delle Entrate a volte ci sono
+          strade che passano attraverso gli edifici?</h4>
+          <p>Il grafo stradale della mappa dell'Agenzia delle Entrate
+          è visibilmente differente da quello di OpenStreetMap, per esempio
+          contiene tutti i nomi delle vie. Tuttavia ci sono delle incongruenze
+          con la mappa sottostante: vie che attraversano edifici (esempi: (1),
+          (2), (3)), incroci sopra corsi d'acqua (esempi: (1), (2), (3)).
+          Riteniamo quindi che i dati relativi alle strade provengano da
+          un'altra fonte e siano stati sovrapposti a quelli degli edifici.
+          </p>
+          <h4>È incredibile! Come posso aiutarvi?</h4>
+          <p>
+            <ul>
+              <li><a class="tweet-link" href="https://twitter.com/intent/tweet?via=OpenStreeMapIt&text=%40Agenzia_Entrate%20copia%20da%20%23openstreetmap!%20%23agenziauscite&url=http%3A%2F%2Fagenziauscite.openstreetmap.it%2Fcompare.html">Twitta</a> <a class="tweet-link" href="https://twitter.com/intent/tweet?via=OpenStreeMapIt&text=%40Agenzia_Entrate%20copia%20da%20%23openstreetmap!%20%23agenziauscite&url=http%3A%2F%2Fagenziauscite.openstreetmap.it%2Fcompare.html">
+              <img src="./img/Twitter_bird_logo_2012.svg" style="height: 32px; width: 32px;" />
+              </a> queste pagine e condividile sui social network! Chiedi con noi
+              che l'Agenzia delle Entrate ammetta l'errore.
+              Usa l'handle <a href="https://twitter.com/hashtag/agenziauscite?src=hash">
+              #agenziauscite</a>!</li>
+              <li>Chiedi che i dati del catasto vengano pubblicati in <a href="http://www.slideshare.net/napo/i-4-passaggi-base-per-pubblicare-open-data"
+              target="_blank">open data</a>.</li>
+              <li>Se sai scrivere codice potresti dare un'occhiata a questo
+              repository e migliorare questo sito.</li>
+              <li>Se hai qualche domanda <a href="./contacts.html">contattaci</a>!</li>
+            </ul>
+          </p>
+          <h4>Chi siete? Come faccio a contattarvi?</h4>
+          <p>Vedi la pagina dei <a href="./contacts.html">contatti</a>.</p>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>© 2014 - OpenStreetMap Italia - Tutti i contenuti del sito sono
+        disponibili secondo i termini della licenza <a href="https://creativecommons.org/licenses/by/4.0/deed.it"
+        target="_blank">Creative Commons 4.0 - Attribuzione</a>. <a rel="license"
+        href="http://creativecommons.org/licenses/by/4.0/"><img alt="Licenza Creative Commons"
+        style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+        </p>
+      </div>
+
+    </div><!-- /container -->
+  </body>
