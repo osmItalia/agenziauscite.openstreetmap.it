@@ -48,16 +48,19 @@ function deleteItem(deleted_item, map_id) {
         data: {'item': deleted_item, 'map_id': map_id},
         success: function(result){
             if ( result['status'] === 0 ) {
+                $('.response').text();
                 $('.response').toggle( "fast" );
                 $('.response').addClass( "success" );
                 $('.response').append("Oggetti rimossi con successo dalla mappa. ");
             }
             else {
+                $('.response').text();
                 $('.response').addClass( "error" );
                 $('.response').append(result['statusmessage']);
             }
         },
         failure: function(result) {
+            $('.response').text();
             $('.response').addClass( "error" );
             $('.response').append(response);        }
     });
@@ -77,16 +80,19 @@ function insertItem(lat, lon, map_id, id, text) {
         },
         success: function(result){
             if ( result['status'] === 0 ) {
+                $('.response').text();
                 $('.response').toggle( "fast" );
                 $('.response').addClass( "success" );
                 $('.response').append("Oggetto aggiunto con successo alla mappa. ");
             }
             else {
+                $('.response').text();
                 $('.response').addClass( "error" );
                 $('.response').append(result['statusmessage']);
             }
         },
         failure: function(result) {
+            $('.response').text();
             $('.response').addClass( "error" );
             $('.response').append(response);
         }
