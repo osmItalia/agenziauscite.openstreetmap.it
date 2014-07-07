@@ -25,7 +25,7 @@ $( document ).ready( function () {
     var map = L.map('map', {
         layers: [osm_classic],
         center: center,
-        zoom: 18
+        zoom: 6
     });
 
     var markers = L.markerClusterGroup();

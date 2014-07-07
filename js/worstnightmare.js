@@ -149,15 +149,14 @@ function getPositionFromHash() {
     var lat = arr[2];
 
     if ( !jQuery.isNumeric(zoom)  ) {
-        zoom = 18;
+        zoom = 6;
     }
     if ( !jQuery.isNumeric(lon)  ) {
-        lon = 46.0718;
+        lon = 42.302;
     }
     if ( !jQuery.isNumeric(lat)  ) {
-        lat = 11.1199;
+        lat = 10.261;
     }
-
     return [zoom, lat, lon];
 }
 
