@@ -210,3 +210,7 @@ ol .round {
   -moz-border-radius: 10px;
   border-radius: 10px;
 }
+
+.leaflet-control-layers label {
+  float:none;
+}
