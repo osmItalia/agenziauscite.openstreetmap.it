@@ -60,6 +60,7 @@ $( document ).ready( function () {
         propertyName: 'display_name',
         propertyLoc: ['lat','lon'],
         markerLocation: true,
+        markerIcon: L.icon({iconUrl: '../img/red_18x18.png',iconSize: [12, 12]}),
         autoType: false,
         autoCollapse: true,
         minLength: 2,
