@@ -14,7 +14,7 @@ $( document ).ready( function() {
 
     var center = [center_lat, center_lon];
 
-    var map = L.map('map').setView(center, 18);
+    var map = L.map('map').setView(center, zoom);
 
     var center_tiles = getTileURL(center[0], center[1], zoom);
 
@@ -65,6 +65,7 @@ $( document ).ready( function() {
                 autoType: false,
                 autoCollapse: true,
                 minLength: 2,
+                zoom: 17
             }));
 
     /*
