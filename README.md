@@ -13,13 +13,13 @@ visitate la pagina relativa al
 Questo sito è dedicato in memoria di
 _[https://it.wikipedia.org/wiki/Aaron_Swartz](Aaron Swartz)_ (1986-2013)
 che ci ha insegnato che ["L'informazione è potere. Ma come con ogni
-tipo di potere, ci sono quelli che se ne vogliono impadronire."](http://aubreymcfato.com/2013/01/14/guerrilla-open-access-manifesto-aaron-swartz/)_.
+tipo di potere, ci sono quelli che se ne vogliono impadronire."](http://aubreymcfato.com/2013/01/14/guerrilla-open-access-manifesto-aaron-swartz/).
 Ci ha insegnato che abbiamo l'imperativo morale di impedire che
 questo avvenga. Per questo gli dedichiamo questo sito, se volete
 saperne di più su di lui guardate
 [questo documentario](https://archive.org/details/TheInternetsOwnBoyTheStoryOfAaronSwartz).
 
-Il repository con il backendsi trova su GitHub anch'esso:
+Il repository con il backend si trova su GitHub anch'esso:
 [agenzia-entrate-proxy-map](https://github.com/osmItalia/agenzia-entrate-proxy-map).
 
 Contesto
@@ -58,8 +58,8 @@ Immobiliare[0] proprio da chi gestisce il Catasto Italiano.
 L’Agenzia ha copiato solo alcuni livelli (gli edifici e il tipo di uso
 del suolo [parchi, fiumi, laghi]) e hanno sovraimposto i dati delle
 strade presi da un'altra fonte, probabilmente mappe proprietarie.
-Infatti le strade sono diverse - e in alcuni casi passano in mezzo
-agli edifici) ed hanno tutti i nomi delle vie, che in OSM, invece,
+Infatti le strade sono diverse (e in alcuni casi passano in mezzo
+agli edifici) ed hanno tutte i nomi delle vie, che in OSM, invece,
 spesso mancano.
 
 Puntiamo a far ammettere loro l’errore e che si inizi a ragionare sul
