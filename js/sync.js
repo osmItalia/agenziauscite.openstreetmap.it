@@ -26,7 +26,7 @@ $( document ).ready( function() {
 
     var center = [center_lat, center_lon];
 
-    var center_tiles = getTileURL(center[0], center[1], 18);
+    var center_tiles = getTileURL(center[0], center[1], zoom);
 
     var markers = L.markerClusterGroup();
 
@@ -53,52 +53,35 @@ $( document ).ready( function() {
     var geopoi = L.tileLayer(geopoi_url, {
         attribution: geopoi_attribution,
         tms: true,
-        minZoom: 18,
+        zoomMin: 2,
+        zoomMax: 18,
         xtile_center: center_tiles[0],
         ytile_center: center_tiles[1]
     });
 
-    var mapbox = L.tileLayer(mapbox_url, {
-        maxZoom: 18,
-        minZoom: 18,
-        attribution: mapbox_attribution,
-        id: 'examples.map-9ijuk24y'
-    });
-
-    var grayscale   = L.tileLayer(mapbox_url, {
-        maxZoom: 18,
-        minZoom: 18,
-        attribution: mapbox_attribution,
-        id: 'examples.map-20v6611k'
-    });
-
     var osm_classic = L.tileLayer(osmclassic_url, {
-        maxZoom: 18,
-        minZoom: 18,
-        attribution: osmclassic_attribution
+        attribution: osmclassic_attribution,
+        zoomMin: 2,
+        zoomMax: 18
     });
 
     var map1 = L.map('map1', {
         layers: [osm_classic],
         center: center,
-        zoom: 18
+        zoom: zoom
     });
 
     var map2 = L.map('map2', {
         layers: [geopoi],
         center: center,
-        zoom: 18
+        zoom: zoom
     });
 
     var baseLayers = {
         "OSM oggi": osm_classic,
-        "Mapbox": mapbox,
-        "Grigio": grayscale,
     };
 
     map1.addControl(drawControl);
-
-    L.control.layers(baseLayers).addTo(map1);
 
     // var marker_center_left = new L.marker(center,
     //     {icon: targetIcon}
@@ -128,7 +111,7 @@ $( document ).ready( function() {
     map2.sync(map1);
     map1.sync(map2);
 
-    var movemarker = function () {
+    var movemarker = function (e) {
         var position = map2.getCenter();
         lat = Number(position['lat']).toFixed(5);
         lng = Number(position['lng']).toFixed(5);
@@ -136,7 +119,7 @@ $( document ).ready( function() {
         // marker_center_left.setLatLng(position);
         // marker_center_right.setLatLng(position);
 
-        tiles = getTileURL(lat, lng, 18);
+        tiles = getTileURL(lat, lng, e.target._zoom);
         xtile = tiles[0];
         ytile = tiles[1];
 
@@ -164,10 +147,6 @@ $( document ).ready( function() {
     * * draw:created is fired on node creation
     * * draw:deleted is fired on node deletion (when saving)
     */
-
-    map1.on('draw:drawstart', function (e) {
-        console.log('draw:drawstart');
-    });
 
     map1.on('draw:created', function (e) {
         console.log('draw:created');

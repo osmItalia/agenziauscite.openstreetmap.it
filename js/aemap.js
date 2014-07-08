@@ -16,19 +16,21 @@ $( document ).ready( function() {
 
     var map = L.map('map').setView(center, 18);
 
-    var center_tiles = getTileURL(center[0], center[1], 18);
+    var center_tiles = getTileURL(center[0], center[1], zoom);
 
     var geopoi = L.tileLayer(geopoi_url, {
         attribution: geopoi_attribution,
         tms: true,
-        minZoom: 18,
+        minZoom: 2,
+        maxZoom: 18,
         xtile_center: center_tiles[0],
         ytile_center: center_tiles[1]
     }).addTo(map);
 
     var osm_classic = L.tileLayer(osmclassic_url, {
-        maxZoom: 18,
-        attribution: osmclassic_attribution
+        attribution: osmclassic_attribution,
+        minZoom: 1,
+        maxZoom: 18
     });
     
     // minimappa
